@@ -16,7 +16,7 @@ const Root = () => {
       <Appbar drawerWidth={drawerWidth} />
     <Draweer drawerWidth={drawerWidth}/>
     </Box>
-  <Box sx={{marginLeft:`${drawerWidth}px`, display: "flex" , justifyContent:"center" }} className="hwew" >
+  <Box component="main" sx={{marginLeft:`${drawerWidth}px`,mt:"100px" , display: "flex" , justifyContent:"center" }} className="hwew" >
       <Outlet />
   </Box >
     </>
