@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import Home from './pages/home/home';
 import Create from './pages/create/create';
 import {
