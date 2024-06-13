@@ -7,13 +7,15 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
+  backgroundColor: theme.palette.johnson.main,
   "&:hover": {
     backgroundColor: purple[700],
+    scale:"0.97",
   },
 }));
 const Create = () => {
   return (
+    
     <Box component="form" width="370px">
       <TextField
         fullWidth
