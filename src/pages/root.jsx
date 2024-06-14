@@ -27,6 +27,9 @@ const darkTheme = createTheme({
             main: '#1e88e5',
             contrastText: '#fff',
           },
+          favcolor:{
+            main:"#64b5f6",
+          }
         }
       : {
           // palette values for dark mode
@@ -34,6 +37,9 @@ const darkTheme = createTheme({
             main: '#f44336',
             light:'#e64a19',
             contrastText: '#fff',
+          }, 
+          favcolor:{
+            main:"#c62828",
           }
         }),
   },

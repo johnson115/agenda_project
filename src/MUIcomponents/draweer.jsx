@@ -12,11 +12,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 import React from "react";
 import { useTheme } from "@emotion/react";
 
 const Draweer = ({ drawerWidth, setmymode }) => {
+  const currentlocation=useLocation();
   const Navigate = useNavigate();
   const theme = useTheme();
   return (
@@ -33,8 +34,8 @@ const Draweer = ({ drawerWidth, setmymode }) => {
       anchor="left"
     >
       <List>
-        <ListItem
-          sx={{ display: "flex", justifyContent: "center" }}
+        <ListItem 
+          sx={{ display: "flex", justifyContent: "center"  }}
           disablePadding
         >
           <IconButton
@@ -54,7 +55,7 @@ const Draweer = ({ drawerWidth, setmymode }) => {
         </ListItem>
 
         <Divider />
-        <ListItem disablePadding>
+        <ListItem disablePadding sx={{backgroundColor: currentlocation.pathname === "/" ? theme.palette.favcolor.main : null}}>
           <ListItemButton
             onClick={() => {
               Navigate("/");
@@ -66,7 +67,7 @@ const Draweer = ({ drawerWidth, setmymode }) => {
             <ListItemText primary="Home" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
+        <ListItem disablePadding sx={{backgroundColor: currentlocation.pathname === "/create" ? theme.palette.favcolor.main : null}}>
           <ListItemButton
             onClick={() => {
               Navigate("/create");
