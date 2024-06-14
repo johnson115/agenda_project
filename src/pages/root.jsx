@@ -14,7 +14,9 @@ import "../index.css" ;
 
 const drawerWidth=240;
 const Root = () => {
-const [mymode, setmymode] = useState("light");
+const [mymode, setmymode] = useState(
+  localStorage.getItem("currentMode")=== null ? "light" :
+  localStorage.getItem("currentMode")=== "light" ? "light" : "dark");
 const darkTheme = createTheme({
   palette: {
     mode: mymode,

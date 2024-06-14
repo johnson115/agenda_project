@@ -40,6 +40,7 @@ const Draweer = ({ drawerWidth, setmymode }) => {
           <IconButton
             sx={{ ml: 1 }}
             onClick={() => {
+              localStorage.setItem("currentMode", theme.palette.mode === "light" ? "dark" : "light");
               setmymode(theme.palette.mode === "light" ? "dark" : "light");
             }}
             color="inherit"
