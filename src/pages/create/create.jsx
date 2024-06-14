@@ -2,14 +2,14 @@ import "./create.css";
 import React from "react";
 import { InputAdornment, TextField, styled, Button } from "@mui/material";
 import { Box } from "@mui/system";
-import { purple } from "@mui/material/colors";
+
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
+  color: theme.palette.getContrastText(theme.palette.johnson.main),
   backgroundColor: theme.palette.johnson.main,
   "&:hover": {
-    backgroundColor: purple[700],
+    backgroundColor: theme.palette.johnson.light,
     scale:"0.97",
   },
 }));

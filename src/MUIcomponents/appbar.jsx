@@ -5,9 +5,12 @@ import IconButton from '@mui/material/IconButton';
 import { Link , Typography,  Avatar  } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
+import { useTheme } from "@emotion/react";
+
 const Appbar = ({drawerWidth}) => {
+  const theme=useTheme();
   return (
-    <AppBar position="static" sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}>
+    <AppBar position="static" sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` , backgroundColor: theme.palette.johnson.main}}>
     <Toolbar>
       <IconButton
         size="large"
