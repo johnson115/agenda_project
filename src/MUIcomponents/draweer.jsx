@@ -33,24 +33,24 @@ const Draweer = ({ drawerWidth, setmymode }) => {
       anchor="left"
     >
       <List>
-
-      <ListItem sx={{display:"flex", justifyContent:"center"}} disablePadding>
-        
-      <IconButton
-          sx={{ ml: 1 }}
-          onClick={() => {
-            setmymode(theme.palette.mode === "light" ? "dark" : "light");
-          }}
-          color="inherit"
+        <ListItem
+          sx={{ display: "flex", justifyContent: "center" }}
+          disablePadding
         >
-          {theme.palette.mode === "dark" ? (
-            <Brightness7Icon sx={{color :"orange"}} />
-          ) : (
-            <Brightness4Icon />
-          )}
-        </IconButton>
-        </ ListItem>
-        
+          <IconButton
+            sx={{ ml: 1 }}
+            onClick={() => {
+              setmymode(theme.palette.mode === "light" ? "dark" : "light");
+            }}
+            color="inherit"
+          >
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon sx={{ color: "orange" }} />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
+        </ListItem>
 
         <Divider />
         <ListItem disablePadding>
