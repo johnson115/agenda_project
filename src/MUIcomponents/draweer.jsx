@@ -16,13 +16,14 @@ import { useLocation } from "react-router-dom";
 import React from "react";
 import { useTheme } from "@emotion/react";
 
-const Draweer = ({ drawerWidth, setmymode }) => {
-  const currentlocation=useLocation();
+const Draweer = ({ drawerWidth, setmymode, hide, varion,  hideDrawer}) => {
+  const currentlocation = useLocation();
   const Navigate = useNavigate();
   const theme = useTheme();
   return (
     <Drawer
       sx={{
+        display: { xs: hide, md: hide },
         width: drawerWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
@@ -30,18 +31,26 @@ const Draweer = ({ drawerWidth, setmymode }) => {
           boxSizing: "border-box",
         },
       }}
-      variant="permanent"
+      open={true}
+      onClose= { () => {
+        hideDrawer()
+      }}
+      variant={varion}
       anchor="left"
+      
     >
       <List>
-        <ListItem 
-          sx={{ display: "flex", justifyContent: "center"  }}
+        <ListItem
+          sx={{ display: "flex", justifyContent: "center" }}
           disablePadding
         >
           <IconButton
             sx={{ ml: 1 }}
             onClick={() => {
-              localStorage.setItem("currentMode", theme.palette.mode === "light" ? "dark" : "light");
+              localStorage.setItem(
+                "currentMode",
+                theme.palette.mode === "light" ? "dark" : "light"
+              );
               setmymode(theme.palette.mode === "light" ? "dark" : "light");
             }}
             color="inherit"
@@ -55,7 +64,15 @@ const Draweer = ({ drawerWidth, setmymode }) => {
         </ListItem>
 
         <Divider />
-        <ListItem disablePadding sx={{backgroundColor: currentlocation.pathname === "/" ? theme.palette.favcolor.main : null}}>
+        <ListItem
+          disablePadding
+          sx={{
+            backgroundColor:
+              currentlocation.pathname === "/"
+                ? theme.palette.favcolor.main
+                : null,
+          }}
+        >
           <ListItemButton
             onClick={() => {
               Navigate("/");
@@ -67,7 +84,15 @@ const Draweer = ({ drawerWidth, setmymode }) => {
             <ListItemText primary="Home" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding sx={{backgroundColor: currentlocation.pathname === "/create" ? theme.palette.favcolor.main : null}}>
+        <ListItem
+          disablePadding
+          sx={{
+            backgroundColor:
+              currentlocation.pathname === "/create"
+                ? theme.palette.favcolor.main
+                : null,
+          }}
+        >
           <ListItemButton
             onClick={() => {
               Navigate("/create");
