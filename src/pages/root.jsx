@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
 import "../index.css";
+import GetDesignTokens from "./styles/mytheme";
 
 const drawerWidth = 240;
 const Root = () => {
@@ -17,33 +18,7 @@ const Root = () => {
       ? "light"
       : "dark"
   );
-  const darkTheme = createTheme({
-    palette: {
-      mode,
-      ...(mode === "light"
-        ? {
-            // palette values for light mode
-            johnson: {
-              main: "#1e88e5",
-              light: "#1126e5",
-            },
-            favcolor: {
-              main: "#64b5f6",
-            },
-          }
-        : {
-            // palette values for dark mode
-            johnson: {
-              main: "#f44336",
-              light: "#e64a19",
-              contrastText: "#fff",
-            },
-            favcolor: {
-              main: "#c62828",
-            },
-          }),
-    },
-  });
+  const theme = React.useMemo(() => createTheme(GetDesignTokens(mode)), [mode]);
   const [perman, setPerman] = useState("permanent");
   const [Hide, setHide] = useState("none");
   const showDrawer=()=>{
@@ -56,7 +31,7 @@ const Root = () => {
   }
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ flexGrow: 1 }}>
           <Appbar

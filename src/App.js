@@ -1,6 +1,7 @@
 import Home from "./pages/home/home";
 import Create from "./pages/create/create";
 
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -8,12 +9,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from "./pages/root";
+import NotFound from "./pages/404";
+
+
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Home />} />
       <Route path="create" element={<Create />} />
-      {/*  <Route path="dashboard" element={<Dashboard />} /> */}
+       <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
