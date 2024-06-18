@@ -1,5 +1,5 @@
 import "./create.css";
-import React from "react";
+import React, { useState } from "react";
 import { InputAdornment, TextField, styled, Button } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -15,10 +15,15 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const Create = () => {
+  const [title, settitle] = useState("");
+  const [price, setprice] = useState(0);
   return (
     
     <Box component="form" width="370px">
       <TextField
+      onChange={(eo) => {
+        settitle(eo.target.value);
+      }}
         fullWidth
         label="With normal TextField"
         sx={{ mt: "22px", display: "block" }}
@@ -29,15 +34,28 @@ const Create = () => {
       />
 
       <TextField
+        onChange={(eo) => {
+          setprice(Number(eo.target.value));
+        }}
         fullWidth
-        label="With normal TextField"
+        label="  Amount"
         sx={{ mt: "22px", display: "block" }}
         InputProps={{
           startAdornment: <InputAdornment position="start">$</InputAdornment>,
         }}
         variant="filled"
       />
-      <ColorButton varient="contained"  sx={{mt:"30px", width: "130px"}}>
+      <ColorButton onClick={() => {
+        fetch("http://localhost:3100/myData",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ price, title }),
+        });
+        
+
+      }} varient="contained"  sx={{mt:"30px", width: "130px"}}>
         Submit <ChevronRightIcon />
       </ColorButton>
     </Box>
