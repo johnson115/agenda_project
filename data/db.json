@@ -9,6 +9,16 @@
       "id": "6e67",
       "price": 33,
       "title": "smoke"
+    },
+    {
+      "id": "85d0",
+      "price": 23,
+      "title": "coffe"
+    },
+    {
+      "id": "454d",
+      "price": 70,
+      "title": "clothes"
     }
   ]
 }

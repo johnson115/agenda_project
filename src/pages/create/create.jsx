@@ -4,6 +4,10 @@ import { InputAdornment, TextField, styled, Button } from "@mui/material";
 import { Box } from "@mui/system";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(theme.palette.johnson.main),
@@ -14,9 +18,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+
 const Create = () => {
   const [title, settitle] = useState("");
   const [price, setprice] = useState(0);
+  const navigate=useNavigate();
   return (
     
     <Box component="form" width="370px">
@@ -53,6 +59,7 @@ const Create = () => {
           },
           body: JSON.stringify({ price, title }),
         });
+        navigate("/");
         
 
       }} varient="contained"  sx={{mt:"30px", width: "130px"}}>
