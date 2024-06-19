@@ -10,10 +10,13 @@ const Home = () => {
     fetch("http://localhost:3100/myData")
     .then((response) => response.json())
     .then((data) => setdata(data) )
-  }, []);
+  }, [mydata]);
+
+  let TotalPrice=0
   return (
     <Box>
       {mydata.map((item) => {
+          TotalPrice= TotalPrice + item.price
         return(
           <Paper
           key={item.id}
@@ -44,7 +47,9 @@ const Home = () => {
         </Paper>
         )
       })}
-
+<Typography variant="h5" sx={{textAlign: "center" , mt:"49px" , color: "#28a745"}} >
+👉 You spent ${TotalPrice}
+</Typography>
     </Box>
   );
 };
