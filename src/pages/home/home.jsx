@@ -16,6 +16,7 @@ const Home = () => {
       {mydata.map((item) => {
         return(
           <Paper
+          key={item.id}
           sx={{
             display: "flex",
             position: "relative",
@@ -32,14 +33,18 @@ const Home = () => {
           <Typography varient="h6" sx={{ mr: "33px", fontSize:"1.4em", opacity :"0.7" }}>
             {item.price}$
           </Typography>
-          <IconButton sx={{ position: "absolute", top: 0, right: 0 }}>
+          <IconButton
+          onClick={() => {
+            fetch(`http://localhost:3100/myData/${item.id}`, {method:"DELETE"})
+          }}
+
+          sx={{ position: "absolute", top: 0, right: 0 }}>
             <CloseIcon sx={{fontSize:"20px"}}/>
           </IconButton>
         </Paper>
         )
       })}
-      
-      
+
     </Box>
   );
 };

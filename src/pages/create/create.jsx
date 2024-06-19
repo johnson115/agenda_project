@@ -25,7 +25,8 @@ const Create = () => {
   const navigate=useNavigate();
   return (
     
-    <Box component="form" width="370px">
+    <Box noValidate
+    autoComplete="off" component="form" width="370px">
       <TextField
       onChange={(eo) => {
         settitle(eo.target.value);
@@ -36,6 +37,7 @@ const Create = () => {
         InputProps={{
           startAdornment: <InputAdornment position="start">&#128073;</InputAdornment>,
         }}
+        
         variant="filled"
       />
 

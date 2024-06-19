@@ -75,6 +75,7 @@ const Draweer = ({ drawerWidth, setmymode, hide, varion,  hideDrawer}) => {
   return(
   <ListItem
           disablePadding
+          key={item.text}
           sx={{
             backgroundColor:
               currentlocation.pathname === item.path
